@@ -1,0 +1,723 @@
+*::before,
+*::after,
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box; 
+}
+
+
+body {
+   font-family: "Roboto", sans-serif;
+   line-height: 1.5;
+}
+
+
+.admin-container {
+   position: relative;
+   height: 100vh;
+   display: grid;
+   grid-template-columns: 1fr; 
+   grid-template-rows: 80px auto 1fr;
+   
+}
+
+
+
+.sidebar {
+   background-color: rgb(1, 1, 48);
+   padding: 20px 15px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   position: sticky;
+   top: 0;
+   z-index: 2;
+   width: 100%;
+}
+
+
+.sidebar > .logo {
+   color: #fff;
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   justify-self: start;
+}   
+
+
+.sidebar > .bar {
+   color: #fff;
+   font-size: 2rem;
+   justify-self: end;
+   cursor: pointer;
+}
+
+
+
+.logo i, 
+.logo h1 {
+   font-size: 1.7rem;
+}
+
+
+nav {
+   position: absolute;
+   top: 80px;
+   left: 0;
+   background-color: rgb(1, 1, 48);
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   padding: 30px 15px;
+   width: 100%;
+   transform: translateY(-600px);
+   visibility: hidden;
+   opacity: 0;
+   transition: transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+   border-top: 2px solid #fff;
+}
+
+
+nav.active {
+   transform: translateY(0);
+   visibility: visible;
+   opacity: 1;
+}
+
+
+ul.list:first-of-type {
+   justify-self: start;
+}
+
+ul.list:last-of-type {
+   justify-self: end;
+}
+
+
+ul.list {
+   list-style: none; 
+}
+
+
+
+ul.list > li + li {
+   margin-top: 15px;
+}
+
+
+
+ul.list > li > a {
+   text-decoration: none;
+   color: #fff; 
+   display: grid;
+   grid-template-columns: 20px 1fr;
+   align-items: center;
+   gap: 15px;
+   font-size: 1.2rem;
+   transition: color 0.3s ease;
+}
+
+
+
+ ul.list > li > a:hover {
+   color: rgb(95, 95, 237); 
+}
+
+
+
+
+.header {
+   background-color: #fff; 
+   padding: 20px 15px;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: min-content;
+   gap: 30px;
+   box-shadow: 0 2px 2px 2px rgb(0 0 0 / .6); 
+   
+}
+
+
+img {
+   object-fit: cover; 
+   border-radius: 50%;
+}
+
+
+.search-profile-1,
+.search-profile-2 {
+   display: grid;
+}
+
+
+.search-profile-1 {
+   grid-template-columns: 1fr 1fr;
+}
+
+
+.search-profile-2 {
+   grid-template-columns: 1fr;
+   gap: 20px;
+}
+
+
+
+.search-profile-1 p,
+.search-profile-2 p {
+   font-weight: 700;
+}
+
+
+.search-profile-1 > .search > i {
+   font-size: 1rem;
+}
+
+.search-profile-1 > .account > i {
+   font-size: 1.1rem;
+}
+
+
+
+.search,
+.account,
+.profile-greeting,
+.profile-buttons {
+   display: flex;
+   align-items: center;
+}
+
+
+.search {
+   gap: 8px;
+   justify-self: start;
+}
+
+
+.account {
+   gap: 8px;
+   justify-self: end;
+}
+
+
+.profile-greeting {
+   gap: 10px;
+}
+
+
+.profile-buttons {
+   gap: 20px;
+}
+
+
+.account > img {
+   max-width: 30px;
+}
+
+
+
+.profile-greeting > img {
+   max-width: 40px;
+}
+
+
+
+
+input[type="text"] {
+   padding: 7px;
+   outline: none;
+   border: none;
+   background-color: #e9e9e9;
+   border-radius: 10px;
+   width: 150px;
+}
+
+
+.profile-greeting > .profile-name {
+   line-height: 1.2;
+}
+
+
+
+.search-profile-1 > .account > p {
+   font-size: 0.9rem;
+}
+
+
+.search-profile-2 > .profile-greeting > .profile-name >  p:first-of-type {
+   font-size: 0.9rem;
+   font-weight: 400;
+}
+
+
+.search-profile-2 > .profile-greeting> .profile-name > p:last-of-type {
+   font-size: 1rem;
+}
+
+
+
+.search-profile-2 > .profile-buttons > button {
+   border: none;
+   color: #fff;
+   background-color: rgb(1, 1, 48);
+   padding: 9px 20px;
+   border-radius: 20px;
+   font-size: 0.9rem;
+   cursor: pointer;
+   box-shadow: 0 2px 1px 1px rgb(0 0 0 / .2);
+   transition: background-color 0.3s ease;
+}
+
+
+.search-profile-2 > .profile-buttons > button:hover {
+    background-color: rgb(33, 152, 199);
+}
+
+
+
+.main-content {
+   background-color: #e5e5e5;
+   padding: 35px 15px;
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 20px;
+}
+
+
+
+.card-project-container > .card-project,
+.card-info-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 20px;
+  
+}
+
+
+.card-project-container > h3,
+.card-7-wrapper > h3,
+.card-8-wrapper > h3 {
+   margin-bottom: 5px;
+}
+
+
+.card {
+   padding: 20px;
+   height: 240px;
+   border-radius: 10px;
+   background-color: #fff;
+   border-left: 6px solid rgb(0 0 0 / .9);
+   box-shadow: 0 0 2px 2px rgb(0 0 0 / .1); 
+   position: relative;
+}
+
+
+.card > h4 {
+   margin-bottom: 6px;
+}
+
+
+.card > p,
+.card-7 p {
+   font-weight: 400;
+   font-size: 0.9rem;
+   color: #434343;
+}
+
+
+.card > .social {
+   position: absolute;
+   right: 30px;
+   bottom: 30px;
+   display: flex;
+   gap: 25px;
+}
+
+
+.card > .social > i {
+   font-size: 1.1rem;
+   cursor: pointer;
+}
+
+
+
+
+.card-7-wrapper > .card,
+.card-8-wrapper > .card {
+   height: auto;
+}
+
+
+.card-7 .card-text-1,
+.card-7 .card-text-2 {
+   border-bottom: 2px solid rgba(60, 37, 37, 0.9);
+   padding-bottom: 15px;
+} 
+
+
+
+.card-7 div:not(.card-7 > div:last-child) {
+   margin-bottom: 15px;
+}
+
+
+.card-8-wrapper {
+   align-self: end;
+}
+
+
+
+.card-8 {
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+
+
+.card-8 > .trend {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+}
+
+
+
+.card-8 > .trend > img {
+   max-width: 55px;
+}
+
+
+.card-8 > .trend > .trend-user-text > p:first-child {
+   font-weight: 700;
+}
+
+
+.card-8 > .trend > .trend-user-text > p:last-child {
+   font-weight: 400;
+   font-size: 0.9rem;
+}
+
+
+
+
+
+@media screen and (min-width: 540px) {
+   input[type="text"] {
+   width: 270px;
+}
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+   .admin-container {
+      min-height: 100vh;
+      grid-template-columns: 230px 1fr; 
+      grid-template-rows: auto 1fr;
+   }
+
+
+
+   .sidebar {
+      padding: 20px 15px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: start;
+      justify-items: start;
+      position: sticky;
+      top: unset;
+      left: 0;
+      width: unset;
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      overflow: hidden;
+   }
+
+
+   .sidebar > .logo {
+      justify-self: unset;
+      margin-bottom: 50px;
+   }   
+
+
+   .sidebar > .bar {
+     display: none;
+   }
+
+
+   .logo i, 
+   .logo h1 {
+     font-size: 2rem;
+   }
+
+
+   nav {
+      position: unset;
+      top: unset;
+      left: unset;
+      background-color: unset;
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: unset;
+      width: unset;
+      transform: translateY(0);
+      visibility: unset;
+      opacity: unset;
+      transition: unset;
+      border-top: unset;
+      gap: 70px;
+   }
+
+
+    ul.list:first-of-type {
+      justify-self: unset;
+   }
+
+    ul.list:last-of-type {
+      justify-self: unset;
+  }
+
+
+
+   ul.list > li > a {
+      gap: 7px;
+   }
+
+
+   ul.list > li > a > i {
+      font-size: 1rem;
+   }
+
+   ul.list > li > a > p {
+      font-size: 1.1rem;
+   }
+
+
+   .header {
+      padding: 25px 15px;
+   }  
+
+
+
+   .search-profile-2 {
+     grid-template-columns: 1fr 1fr;
+   }
+
+
+
+   .search-profile-1 > .account > i {
+      font-size: 1.2rem;
+   }
+
+
+
+   .search {
+       gap: 6px;
+   }
+
+
+   .account {
+      gap: 15px;
+      
+   }
+
+
+   .profile-greeting {
+      gap: 10px;
+      justify-self: start;
+   }
+
+
+   .profile-buttons {
+      gap: 10px;
+      justify-self: end;
+   }
+
+
+   .account > img {
+      max-width: 37px;
+   }
+
+
+
+   .profile-greeting > img {
+      max-width: 45px;
+   }
+
+
+   .profile-greeting > .profile-name {
+      line-height: 1.2;
+   }
+
+
+
+
+   input[type="text"] {
+      padding: 7px;
+      width: 280px;
+   }
+
+
+
+   .search-profile-1 > .account > p {
+      font-size: 1.1rem;
+   }
+
+
+   .search-profile-2 > .profile-greeting > .profile-name > p {
+      font-size: 1.2rem;
+   }
+
+
+   .main-content {
+      overflow-y: auto;
+      padding: 25px 15px;
+   }
+
+
+
+}
+
+
+
+
+@media screen and (min-width: 1024px) {
+
+    .admin-container {
+      grid-template-columns: 250px 1fr; 
+   }
+
+
+   .header {
+      padding: 25px 20px;
+   }  
+
+
+   .search-profile-1 {
+      grid-template-columns: 2fr 1fr;
+   }
+
+
+   .search-profile-2 {
+     grid-template-columns: 1fr 1fr;
+   }
+
+
+
+   .search-profile-1 > .search > i {
+      font-size: 1.2rem;
+   }
+
+
+   .search-profile-1 > .account > i {
+      font-size: 1.4rem;
+   }
+
+
+
+   .search {
+       gap: 10px;
+   }
+
+
+   .account {
+      gap: 30px;
+      
+   }
+
+
+   .profile-greeting {
+      gap: 15px;
+      justify-self: start;
+   }
+
+
+   .profile-buttons {
+      gap: 25px;
+      justify-self: end;
+   }
+
+
+   .account > img {
+      max-width: 40px;
+   }
+
+
+
+   .profile-greeting > img {
+      max-width: 50px;
+   }
+
+
+   .profile-greeting > .profile-name {
+      line-height: 1.3;
+   }
+
+
+
+
+   input[type="text"] {
+      padding: 8px;
+      width: 400px;
+   }
+
+
+
+   .search-profile-1 > .account > p {
+      font-size: 1.1rem;
+   }
+
+
+   .search-profile-2 > .profile-greeting > .profile-name > p {
+      font-size: 1.2rem;
+   }
+
+   
+
+    
+}
+
+
+
+
+@media screen and (min-width: 1280px) {
+
+   .header {
+      padding: 25px 30px;
+   }  
+
+    input[type="text"] {
+      padding: 8px;
+      width: 550px;
+   }
+
+
+    .search-profile-1 > .account > p {
+      font-size: 0.9rem;
+   }
+
+
+   .search-profile-2 > .profile-greeting > .profile-name > p {
+      font-size: 1.1rem;
+   }
+
+
+   .search-profile-2 > .profile-buttons > button {
+      padding: 10px 25px;
+      font-size: 1rem;
+   }
+
+
+
+   .main-content {
+      grid-template-columns: 2fr 1fr;
+   }
+
+  
+
+}
+
+
+
+
